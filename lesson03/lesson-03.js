@@ -1,0 +1,53 @@
+// Название проекта
+let titleProject = prompt("Название проекта?");
+
+// Тип экранов
+let screensValue = prompt("Какие типы экранов нужны?");
+
+// Стоимость экрана
+let screenPrice = Number(prompt("Сколько стоит экран?"));
+
+// Адаптив
+let responsive = confirm("Нужен ли адаптивный сайт?");
+
+// Первый дополнительный сервис
+let service1 = prompt("Какой сервис нужен?");
+let servicePrice1 = Number(prompt("Сколько это будет стоить?"));
+
+// Второй дополнительный сервис
+let service2 = prompt("Какой еще сервис нужен?");
+let servicePrice2 = Number(prompt("Сколько будет стоить этот сервис?"));
+
+// Общая стоимость проекта
+let fullPrice = screenPrice + servicePrice1 + servicePrice2;
+
+// Процент подрядчику
+let servicePercent = Math.round(
+    Number(prompt("Какой процент получает подрядчик?"))
+);
+
+// Стоимость после вычета процента
+let servicePercentPrice =
+    fullPrice - (fullPrice * servicePercent) / 100;
+
+servicePercentPrice = Math.round(servicePercentPrice);
+
+console.log("Стоимость проекта:", fullPrice);
+console.log("После вычета процента:", servicePercentPrice);
+
+// Условия скидок
+if (fullPrice > 50000) {
+    console.log("Сделаем скидку 10%");
+} else if (fullPrice > 20000 && fullPrice < 50000) {
+    console.log("Сделаем скидку 5%");
+} else if (fullPrice > 0 && fullPrice < 20000) {
+    console.log("Скидка не предусмотрена");
+} else if (
+    fullPrice === 0 ||
+    fullPrice === 20000 ||
+    fullPrice === 50000
+) {
+    console.log("Особый случай стоимости проекта");
+} else {
+    console.log("Что-то пошло не так");
+}
